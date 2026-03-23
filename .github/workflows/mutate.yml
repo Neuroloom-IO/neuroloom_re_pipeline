@@ -1,0 +1,43 @@
+name: Mutate Stage CI
+
+on:
+  push:
+    paths:
+      - 'src/mutate/**'
+      - 'src/config/constants.py'
+      - 'src/governance/**'
+  pull_request:
+    paths:
+      - 'src/mutate/**'
+      - 'src/config/constants.py'
+      - 'src/governance/**'
+  workflow_dispatch:
+
+jobs:
+  mutate-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+
+      - name: Run Mutate tests
+        run: |
+          pytest src/tests/ -v -k mutate
+
+      - name: Test safety gates
+        run: |
+          pytest src/governance/ -v
+
+      - name: Type check
+        run: |
+          mypy src/mutate/
+          mypy src/governance/
