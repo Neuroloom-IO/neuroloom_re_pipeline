@@ -1,0 +1,46 @@
+{
+  "broadcast_id": "bc_1774382400000",
+  "trace_id": "tsk_tr_069c2ec56c9977b2_1774382400000",
+  "artifact_ref": "stage4/crystallized-1774378801",
+  "artifact_version": "4.0.0-1774378801",
+  "broadcast_timestamp": "2026-03-24T20:07:00Z",
+  "pou_attestation_id": "POU-1774378801",
+  "domains": [
+    {
+      "name": "neuroloom.io",
+      "status": "success",
+      "timestamp": "2026-03-24T20:07:05Z",
+      "response_time_ms": 4500
+    },
+    {
+      "name": "nebuos.ai",
+      "status": "success",
+      "timestamp": "2026-03-24T20:07:08Z",
+      "response_time_ms": 8200
+    },
+    {
+      "name": "neuroagents.dev",
+      "status": "success",
+      "timestamp": "2026-03-24T20:07:10Z",
+      "response_time_ms": 10500
+    },
+    {
+      "name": "neuroloom.app",
+      "status": "success",
+      "timestamp": "2026-03-24T20:07:12Z",
+      "response_time_ms": 12800
+    },
+    {
+      "name": "deepmirror.ai",
+      "status": "success",
+      "timestamp": "2026-03-24T20:07:15Z",
+      "response_time_ms": 15200
+    }
+  ],
+  "deployment_config": {
+    "type": "atomic_hot_swap",
+    "canary_percentage": 10
+  },
+  "rollback_triggered": false,
+  "overall_status": "SUCCESS"
+}
