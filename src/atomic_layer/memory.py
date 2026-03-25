@@ -200,7 +200,7 @@ class VectorEncoder:
 class SimCalc:
     """Compute similarity between vectors."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         self._cache = AtomicCache(max_size_mb=128)
 
     def cosine_similarity(self, a: np.ndarray, b: np.ndarray) -> float:
