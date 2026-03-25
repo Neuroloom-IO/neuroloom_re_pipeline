@@ -121,9 +121,9 @@ class CrossPodDNAFusion:
 class PIDGovernedMutation:
     """PID-governed mutation protocol."""
     
-    def __init__(self):
+    def __init__(self) -> None:
         self.pid = PIDParameters()
-        self.mutation_history = []
+        self.mutation_history: List[float] = []
     
     def mutate(self, sequence: str, target_rate: float = 0.5) -> Tuple[str, Dict[str, float]]:
         if self.mutation_history:
@@ -193,7 +193,7 @@ class CHRONOSyncHasher:
 class FailureDensityFusion:
     """Failure density fusion protocol."""
     
-    def __init__(self):
+    def __init__(self) -> None:
         self.failure_density_map: Dict[str, float] = {}
     
     def analyze_density(self, regions: List[str]) -> Dict[str, float]:
@@ -222,11 +222,11 @@ class FailureDensityFusion:
 class MemeticGravityWell:
     """Memetic gravity well protocol."""
     
-    def __init__(self):
+    def __init__(self) -> None:
         self.wells: List[GravityWell] = []
         self._initialize_default_wells()
     
-    def _initialize_default_wells(self):
+    def _initialize_default_wells(self) -> None:
         positions = [[0.0, 0.0, 0.0], [1.0, 0.0, 0.0], [-1.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 1.0]]
         for i, pos in enumerate(positions):
             self.wells.append(GravityWell(well_id=f"well_{i}", mass=random.uniform(0.5, 2.0), position=pos, radius=random.uniform(0.5, 1.5), energy=random.uniform(0.1, 1.0)))
@@ -260,8 +260,9 @@ class SafetyGate:
     OMEGA_THRESHOLD = 0.999999
     BETA_THRESHOLD = 100.0
     
-    def __init__(self):
-        self.omega_history, self.beta_history = [], []
+    def __init__(self) -> None:
+        self.omega_history: List[float] = []
+        self.beta_history: List[float] = []
     
     def verify(self, sequence: str, mutation_count: int = 0) -> SafetyMetrics:
         entropy = self._compute_entropy(sequence)

@@ -117,6 +117,14 @@ warn_unused_ignores = true
 warn_no_return = true
 strict_equality = true
 
+[[tool.mypy.overrides]]
+module = ["numpy", "numpy.*"]
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = ["src.tests.*"]
+ignore_errors = true
+
 [tool.ruff]
 line-length = 88
 select = [
